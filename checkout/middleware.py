@@ -12,4 +12,4 @@ def cart_item_middleware(get_response):
                 cart_key=request.session.session_key
             )
         return response
-return middleware
+    return middleware

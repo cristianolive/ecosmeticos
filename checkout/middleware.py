@@ -13,4 +13,3 @@ def cart_item_middleware(get_response):
             )
         return response
     return middleware
-return cart_item_middleware

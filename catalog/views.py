@@ -6,12 +6,14 @@ from django.views import generic
 
 from .models import Product, Category
 
+
 class ProductListView(generic.ListView):
 
     model = Product
     template_name = 'catalog/product_list.html'
-    context_object_name = 'product_list'
+    context_object_name = 'products'
     paginate_by = 3
+
 
 product_list = ProductListView.as_view()
 
@@ -30,7 +32,9 @@ class CategoryListView(generic.ListView):
         context['current_category'] = get_object_or_404(Category, slug=self.kwargs['slug'])
         return context
 
+
 category = CategoryListView.as_view()
+
 
 def product(request, slug):
     product = Product.objects.get(slug=slug)

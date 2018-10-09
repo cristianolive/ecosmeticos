@@ -58,7 +58,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'checkout.middleware.cart_item_middleware',
+    #'checkout.middleware.cart_item_middleware',
 ]
 
 ROOT_URLCONF = 'ecosmeticos.urls'

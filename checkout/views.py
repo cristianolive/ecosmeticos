@@ -125,9 +125,9 @@ class PagSeguroView(LoginRequiredMixin, RedirectView):
         pg.redirect_url = self.request.build_absolute_uri(
             reverse('checkout:order_detail', args=[order.pk])
         )
-        pg.notification_url = self.request.build_absolute_uri(
-            reverse('checkout:pagseguro_notification')
-        )
+        #pg.notification_url = self.request.build_absolute_uri(
+        #    reverse('checkout:pagseguro_notification')
+        #)
         response = pg.checkout()
         return response.payment_url
 

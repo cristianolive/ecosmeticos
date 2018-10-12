@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 #libs
     'widget_tweaks',
+    'paypal.standard.ipn',
 #app
     'core',
     'accounts',
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'checkout',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +59,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    #'checkout.middleware.cart_item_middleware',
+    'checkout.middleware.cart_item_middleware',
 ]
 
 ROOT_URLCONF = 'ecosmeticos.urls'
@@ -150,7 +151,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 EMAIL_HOST = ''
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-DEFAULD_FROM_EMAIL = 'admin.ecosmeticos@ig.com'
+DEFAULD_FROM_EMAIL = 'admecosmeticos@gmail.com'
 
 #auth
 LOGIN_URL = 'login'
@@ -171,6 +172,14 @@ MESSAGE_TAGS = {
     messages_constants.WARNING: 'warning',
     messages_constants.ERROR: 'danger',
 }
+
+PAGSEGURO_TOKEN = '9C5FB49CFCDE435A8FE2100645A96290'
+PAGSEGURO_EMAIL = 'admecosmeticos@gmail.com'
+PAGSEGURO_SANDBOX = True
+
+PAYPAL_TEST = True
+PAYPAL_EMAIL = 'admecosmeticos@gmail.com'
+
 
 try:
     from .local_settings import *

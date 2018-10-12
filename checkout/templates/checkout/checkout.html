@@ -14,12 +14,7 @@ Finalização da Compra
     <h1>Escolha a forma de pagamento</h1>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <p>
-            Pedido #{{ order.pk }}
-        </p>
-    </div>
-    <div class="col-md-4 col-md-offset-2">
+  <div class="col-md-4 col-md-offset-2">
       <a href="{% url 'checkout:pagseguro_view' order.pk %}" class="btn btn-success">Pagar com Pagseguro</a>
   </div>
   <div class="col-md-4">

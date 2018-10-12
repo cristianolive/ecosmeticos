@@ -124,7 +124,7 @@ class Order(models.Model):
         pg.sender = {
             'email': self.user.email
         }
-        pg.reference_prefix = 'pagseguro'
+        pg.reference_prefix = None
         pg.shipping = None
         pg.reference = self.pk
         for item in self.items.all():

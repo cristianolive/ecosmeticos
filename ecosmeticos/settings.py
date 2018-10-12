@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'checkout',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'checkout.middleware.cart_item_middleware',
+    #'checkout.middleware.cart_item_middleware',
 ]
 
 ROOT_URLCONF = 'ecosmeticos.urls'

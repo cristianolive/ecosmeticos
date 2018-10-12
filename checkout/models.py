@@ -117,6 +117,8 @@ class Order(models.Model):
         self.save()
 
     def pagseguro(self):
+        self.payment_option = 'pagseguro'
+        self.save()
         pg = PagSeguro(
             email=settings.PAGSEGURO_EMAIL, token=settings.PAGSEGURO_TOKEN,
             config={'sandbox': settings.PAGSEGURO_SANDBOX}
@@ -124,7 +126,7 @@ class Order(models.Model):
         pg.sender = {
             'email': self.user.email
         }
-        pg.reference_prefix = None
+        pg.reference_prefix = ''
         pg.shipping = None
         pg.reference = self.pk
         for item in self.items.all():

@@ -117,8 +117,6 @@ class Order(models.Model):
         self.save()
 
     def pagseguro(self):
-        self.payment_option = 'pagseguro'
-        self.save()
         pg = PagSeguro(
             email=settings.PAGSEGURO_EMAIL, token=settings.PAGSEGURO_TOKEN,
             config={'sandbox': settings.PAGSEGURO_SANDBOX}

@@ -137,6 +137,8 @@ class Order(models.Model):
                     'amount': '%.2f' % item.price
                 }
             )
+        #response = pg()
+        #return response.payment_url
         return pg
 
     def paypal(self):

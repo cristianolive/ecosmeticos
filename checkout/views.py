@@ -136,7 +136,7 @@ class PagSeguroView(LoginRequiredMixin, RedirectView):
         )
         logger.error('')
         response = pg.checkout()
-        print (response.errors)
+        #print (response.errors)
         return response.payment_url
 
 

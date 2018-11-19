@@ -210,11 +210,11 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
-            'filename': os.path.join(BASE_DIR, 'checkout.views.log'),
+            'filename': os.path.join(BASE_DIR, 'pagseguro.log'),
         }
     },
     'loggers': {
-        'checkout.views': {
+        'views': {
             'handlers': ['checkout.views'],
             'level': 'DEBUG',
         }

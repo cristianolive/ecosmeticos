@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import logging
 
 from pagseguro import PagSeguro
 
@@ -22,6 +23,8 @@ from django.http import HttpResponse
 from catalog.models import Product
 
 from .models import CartItem, Order
+
+logger = logging.getLogger('checkout.views')
 
 
 class CreateCartItemView(RedirectView):
@@ -122,14 +125,16 @@ class PagSeguroView(LoginRequiredMixin, RedirectView):
             Order.objects.filter(user=self.request.user), pk=order_pk
         )
         pg = order.pagseguro()
-        pg.redirect_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
-        #pg.redirect_url = self.request.build_absolute_uri(
-        #    reverse('checkout:order_detail', args=[order.pk])
-        #)
-        pg.notification_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
-        #pg.notification_url = self.request.build_absolute_uri(
-        #    reverse('checkout:pagseguro_notification')
-        #)
+        #pg.redirect_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
+        pg.redirect_url = self.request.build_absolute_uri(
+            reverse('checkout:order_detail', args=[order.pk])
+        )
+        logger.error('')
+        #pg.notification_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
+        pg.notification_url = self.request.build_absolute_uri(
+            reverse('checkout:pagseguro_notification')
+        )
+        logger.error('')
         response = pg.checkout()
         print (response.errors)
         return response.payment_url

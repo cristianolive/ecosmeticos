@@ -117,6 +117,7 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
         return Order.objects.filter(user=self.request.user)
 
 
+
 class PagSeguroView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
@@ -125,20 +126,14 @@ class PagSeguroView(LoginRequiredMixin, RedirectView):
             Order.objects.filter(user=self.request.user), pk=order_pk
         )
         pg = order.pagseguro()
-        #pg.redirect_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
         pg.redirect_url = self.request.build_absolute_uri(
             reverse('checkout:order_detail', args=[order.pk])
         )
-        logger.error('')
-        #pg.notification_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
         pg.notification_url = self.request.build_absolute_uri(
             reverse('checkout:pagseguro_notification')
         )
-        logger.error('')
         response = pg.checkout()
-        #print (response.errors)
         return response.payment_url
-
 
 class PaypalView(LoginRequiredMixin, TemplateView):
 

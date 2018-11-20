@@ -129,12 +129,12 @@ class PagSeguroView(LoginRequiredMixin, RedirectView):
         pg.redirect_url = self.request.build_absolute_uri(
             reverse('checkout:order_detail', args=[order.pk])
         )
-        logger.error('')
+        #logger.error('')
         #pg.notification_url = "https://ecosmeticos.herokuapp.com/compras/carrinho/"
         pg.notification_url = self.request.build_absolute_uri(
             reverse('checkout:pagseguro_notification')
         )
-        logger.error('')
+        #logger.error('')
         response = pg.checkout()
         #print (response.errors)
         return response.payment_url

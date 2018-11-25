@@ -116,8 +116,6 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
 
-
-
 class PagSeguroView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):

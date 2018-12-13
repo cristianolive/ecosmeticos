@@ -11,6 +11,10 @@ urlpatterns = [
     ),
     url(r'^carrinho/$', views.cart_item, name='cart_item'),
     url(r'^finalizando/$', views.checkout, name='checkout'),
+    #url(
+    #    r'^finalizando/(?P<pk>\d+)/orcamento/$', views.orcamento_view,
+    #    name='orcamento_view'
+    #),
     url(
         r'^finalizando/(?P<pk>\d+)/pagseguro/$', views.pagseguro_view,
         name='pagseguro_view'

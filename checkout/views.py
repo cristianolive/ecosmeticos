@@ -191,6 +191,32 @@ def paypal_notification(sender, **kwargs):
 valid_ipn_received.connect(paypal_notification)
 
 
+#from checkout import CheckoutForm
+
+#User = get_user_model()
+
+#Classe alterada do curso
+class IndexView(TemplateView):
+
+    template_name = 'index.html'
+
+index = IndexView.as_view()
+
+def checkout(request):
+    success = False
+    form = CartForm(request.POST or None)
+    if form.is_valid():
+        form.send_mail()
+        success = True
+    elif request.method == 'POST':
+        messages.error(request, 'Formulário inválido')
+    context = {
+        'form': form,
+        'success': success
+    }
+    return render(request, 'checkout.html', context)
+
+
 create_cartitem = CreateCartItemView.as_view()
 cart_item = CartItemView.as_view()
 checkout = CheckoutView.as_view()
@@ -198,3 +224,5 @@ order_list = OrderListView.as_view()
 order_detail = OrderDetailView.as_view()
 pagseguro_view = PagSeguroView.as_view()
 paypal_view = PaypalView.as_view()
+#CartForm_view = CartForm.as_view()
+#orcamento_view = Orcamento.as_view()

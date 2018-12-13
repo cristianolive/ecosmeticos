@@ -7,6 +7,10 @@ from django.conf import settings
 
 from catalog.models import Product
 
+#Enviar email
+from django import forms
+from django.core.mail import send_mail
+from django.conf import settings
 
 class CartItemManager(models.Manager):
 
@@ -160,6 +164,32 @@ class Order(models.Model):
             index = index + 1
         return paypal_dict
 
+#def Enviar Email (Não tem no curso)
+class OrcamentoForm(forms.Form):
+
+    #name = forms.CharField(label='Nome')
+    #email = forms.EmailField(label='E-mail')
+    #message = forms.CharField(label='Mensagem', widget=forms.Textarea())
+
+    def send_mail(self):
+        pg.sender = {
+        'email': self.user.email
+        }
+        pg.reference_prefix = ''
+        pg.shipping = None
+        pg.reference = self.pk
+        for item in self.items.all():
+            pg.items.append(
+                {
+                    'id': item.product.pk,
+                    'description': item.product.name,
+                    'quantity': item.quantity,
+                    'amount': '%.2f' % item.price
+                }
+        )
+                #response = pg()
+                #return response.payment_url
+        return pg
 
 class OrderItem(models.Model):
 

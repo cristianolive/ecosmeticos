@@ -153,9 +153,12 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 #E-email
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER = 'admecosmeticos'
+EMAIL_HOST_PASSWORD = 'ecosmeticos2018'
 DEFAULD_FROM_EMAIL = 'admecosmeticos@gmail.com'
 
 #auth

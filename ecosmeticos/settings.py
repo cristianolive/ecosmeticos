@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 #libs
     'widget_tweaks',
-    #'easy_thumbnails',
+    'easy_thumbnails',
     'paypal.standard.ipn',
     #'watson',
 #app
@@ -192,6 +192,13 @@ PAGSEGURO_SANDBOX = True
 
 PAYPAL_TEST = True
 PAYPAL_EMAIL = 'admecosmeticos@gmail.com'
+
+# Thumbnail
+THUMBNAIL_ALIASES = {
+    '': {
+        'product_image': {'size': (285, 160), 'crop': True},
+    },
+}
 
 # Logging
 LOGGING = {

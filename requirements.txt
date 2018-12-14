@@ -22,3 +22,5 @@ wcwidth==0.1.7
 whitenoise==3.2
 pagseguro==0.3.4
 django-paypal==0.3.3
+easy-thumbnails==-2.5
+Pillow==5.3.0

@@ -22,7 +22,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY','123')#'-xupw!27igv8_i68v_8co7hlqi%=$id-prxc+6dy15vco%ezb2'
+SECRET_KEY = os.getenv('SECRET_KEY','123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -153,11 +153,11 @@ MEDIA_URL = '/media/'
 ##
 ALLOWED_HOSTS = ['*']
 ##
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 #STATIC_ROOT = os.path.join(BASE_DIR), 'staticfiles'
 #MEDIA_ROOT = os.path.join(BASE_DIR), 'media'
-MEDIA_ROOT = os.path.join(PROJECT_ROOT), 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR), 'media'
 
 #E-email
 #EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
@@ -165,7 +165,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_HOST_USER = 'admecosmeticos'
-EMAIL_HOST_PASSWORD = 'ecosmeticos2018'
+EMAIL_HOST_PASSWORD = ''
 DEFAULD_FROM_EMAIL = 'admecosmeticos@gmail.com'
 
 #auth
@@ -188,7 +188,7 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
-PAGSEGURO_TOKEN = '9C5FB49CFCDE435A8FE2100645A96290'
+PAGSEGURO_TOKEN = ''
 PAGSEGURO_EMAIL = 'admecosmeticos@gmail.com'
 PAGSEGURO_SANDBOX = True
 

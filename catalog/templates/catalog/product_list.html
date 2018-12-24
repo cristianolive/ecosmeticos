@@ -11,7 +11,7 @@
     <h1>Produtos</h1>
 </div>
 <div class="row">
-    {% for product in products %}
+    {% for product in object_list %}
     {% include "catalog/_product.html" %}
     {% endfor %}
 </div>

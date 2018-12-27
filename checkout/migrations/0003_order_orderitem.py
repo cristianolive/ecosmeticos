@@ -10,8 +10,8 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('catalog', '0001_initial'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('checkout', '0002_auto_20181002_2349'),
     ]
 
@@ -27,8 +27,8 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
             ],
             options={
-                'verbose_name': 'Pedido',
                 'verbose_name_plural': 'Pedidos',
+                'verbose_name': 'Pedido',
             },
         ),
         migrations.CreateModel(
@@ -41,8 +41,8 @@ class Migration(migrations.Migration):
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.Product', verbose_name='Produto')),
             ],
             options={
-                'verbose_name': 'Item do pedido',
                 'verbose_name_plural': 'Itens dos pedidos',
+                'verbose_name': 'Item do pedido',
             },
         ),
     ]

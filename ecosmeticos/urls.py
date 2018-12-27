@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import login, logout
 
 from core import views
-#from catalog import views as views_catalog
+from catalog import views as views_catalog #estava comentado
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),

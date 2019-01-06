@@ -198,7 +198,7 @@ PAYPAL_EMAIL = 'admecosmeticos@gmail.com'
 # Thumbnail
 THUMBNAIL_ALIASES = {
     '': {
-        'product_image': {'size': (285, 160), 'crop': True},
+        'product_image': {'size': (285, 160), 'crop': False},
     },
 }
 

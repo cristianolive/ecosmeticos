@@ -22,7 +22,10 @@
       <p class="text-right">
           <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-success">Adicionar ao Carrinho</a>
       </p>
-      <!-- {{ product.description|linebreaks }}-->
+      <p>
+      <h1>Preço Unitário: R${{ product.price }}</h1>
+      </p>
+      {{ product.description|linebreaks }}
   </div>
 </div>
 {% endblock %}

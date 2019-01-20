@@ -30,6 +30,7 @@ class Product(models.Model):
     category = models.ForeignKey('catalog.Category', verbose_name='Categoria', on_delete=models.CASCADE)
     description = models.TextField('Descrição', blank=True)
     price = models.DecimalField('Preço', decimal_places=2, max_digits=8)
+    pricedesc = models.DecimalField('Preço com desconto', decimal_places=2, max_digits=8, blank=True, null=True)
     stock = models.DecimalField('Estoque', decimal_places=2, max_digits=8, blank=True, null=True)
     stockmin = models.DecimalField('Estoque Minimo', decimal_places=2, max_digits=8, blank=True, null=True)
     image = models.ImageField(
@@ -42,7 +43,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
-        ordering = ['name']
+        ordering = ['linha']
 
     def __str__(self):
         return self.name

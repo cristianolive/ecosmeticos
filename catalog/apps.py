@@ -7,6 +7,6 @@ class CatalogConfig(AppConfig):
     name = 'catalog'
     verbose_name = 'Catálogo'
 
-    def ready(self):
-        Product = self.get_model('Product')
-        watson.register(Product)
+    #def ready(self):
+    #    Product = self.get_model('Product')
+    #    watson.register(Product)
